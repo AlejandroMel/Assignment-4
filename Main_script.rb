@@ -78,6 +78,12 @@ best_hit_fasta1.each_key do |key|
   end 
 end
 
+if common_hits.length != 0
+  puts ("#{common_hits.length} orthologues found")
+else
+  puts ("No orthologues")
+end
+
 return common_hits
 
 end
@@ -90,7 +96,7 @@ def write_report(file_name, orthologues_list)
     out.puts ("#{pair[0]}\t-\t#{pair[1]}")
   end  
   out.close
-  puts ("The pairs of orthologues found have been in written in the file #{file_name}")
+  puts ("The pairs of orthologues found have been written in the file #{file_name}")
 end
 
 fastafile1 = store_fastafile("Arabidopsis.fa")
